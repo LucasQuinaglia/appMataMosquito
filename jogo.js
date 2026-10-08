@@ -1,7 +1,26 @@
 var altura = 0
 var largura = 0
 var vidas = 1
-var tempo = 10
+var tempo = 15
+
+var mosquitoTempo = 2000
+
+var nivel = window.location.search.replace('?', '')
+
+
+if (nivel === 'facil') {
+    //2 segundos
+    var mosquitoTempo = 2000
+} else if (nivel === 'normal') {
+    // 1,5 segundos
+    var mosquitoTempo = 1500
+} else if (nivel === 'dificil') {
+    //1 segundo
+    var mosquitoTempo = 1000
+} else {
+    //0,5 segundo
+    var mosquitoTempo = 500
+}
 
 //faz leitura do tamanho do body (onresize no body, pra toda vez que a tela for modificada, a posicao nao fioque fora da tela)
 function ajustaTamanhoJogo() {
@@ -11,6 +30,7 @@ function ajustaTamanhoJogo() {
 
 ajustaTamanhoJogo()
 
+//logica do cronometro
 var cronometro = setInterval(function () {
     tempo -= 1
     if (tempo < 0) {
