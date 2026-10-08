@@ -1,6 +1,7 @@
 var altura = 0
 var largura = 0
 var vidas = 1
+var tempo = 10
 
 //faz leitura do tamanho do body (onresize no body, pra toda vez que a tela for modificada, a posicao nao fioque fora da tela)
 function ajustaTamanhoJogo() {
@@ -9,6 +10,17 @@ function ajustaTamanhoJogo() {
 }
 
 ajustaTamanhoJogo()
+
+var cronometro = setInterval(function () {
+    tempo -= 1
+    if (tempo < 0) {
+        clearInterval(cronometro)
+        clearInterval(criaMosquito)
+        alert('nice!')
+    } else {
+        document.getElementById('cronometro').innerHTML = tempo
+    }
+}, 1000)
 
 //posicao randomica de onde os mosquitos vao aparecer
 function posicaoMosquito() {
