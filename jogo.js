@@ -18,7 +18,7 @@ function posicaoMosquito() {
 
         //logica para afetar as vidas
         if (vidas > 3) {
-            alert('perdeu')
+            window.location.href = 'gameOver.html'
         } else {
             document.getElementById('v' + vidas).src = "img/coracao_vazio.png"
             vidas++
